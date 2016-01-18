@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>CounterState</title>
+    <script src="https://fb.me/react-0.12.2.min.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.12.2.js"></script>
 </head>
 <body>
+<div id='mount-point'></div>
+<script type="text/jsx">
+    /** @jsx React.DOM */
+    var Mycomponent = React.createClass({
+        getInitialState: function(){
+            return {
+                count: 0
+            }
+        },
+        incrementCount: function(){
+            this.setState({
+                count: this.state.count + 1
+            })
+        },
+        render: function(){
+            return(
+                    <div class="my-component">
+                        <h1>Count: {this.state.count}</h1>
+                        <button type="button" onClick={this.incrementCount}>Increment</button>
+                    </div>
+            );
+        }
+    });
+
+    React.render(<Mycomponent/>, document.getElementById('mount-point'));
+</script>
 
 </body>
 </html>
